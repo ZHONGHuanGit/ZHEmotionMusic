@@ -89,7 +89,7 @@ class ViewController: UIViewController , SuperIDDelegate {
         if(error == nil){
             println("操作成功!")
             
-//            println(featureInfo)
+            println(featureInfo)
 //            var info = featureInfo!
             
             //因为featureInfo和其内部的数据，都是optional类型，需要 unwrap
@@ -131,7 +131,7 @@ class ViewController: UIViewController , SuperIDDelegate {
         var SIDEmotionViewController  = superIdSdk!.obtainFaceFeatureViewControllerWithError(&error) as? UIViewController;
         
         if let SEV = SIDEmotionViewController{
-            
+            //采用present的方式弹出人脸情绪的功能：
             self.presentViewController(SIDEmotionViewController!, animated: true, completion: nil)
             
         }
