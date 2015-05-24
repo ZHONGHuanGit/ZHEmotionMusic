@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2179EFE61B11F28700560018 /* AdvancedFaceFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2179EFE51B11F28700560018 /* AdvancedFaceFeatureViewController.swift */; };
+		219BBCA01B102E7600753280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBC9F1B102E7600753280 /* AppDelegate.swift */; };
+		219BBCA21B102E7600753280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBCA11B102E7600753280 /* ViewController.swift */; };
+		219BBCA51B102E7600753280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCA31B102E7600753280 /* Main.storyboard */; };
+		219BBCA71B102E7600753280 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCA61B102E7600753280 /* Images.xcassets */; };
+		219BBCAA1B102E7600753280 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCA81B102E7600753280 /* LaunchScreen.xib */; };
+		219BBCB61B102E7600753280 /* ZHEmotionMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBCB51B102E7600753280 /* ZHEmotionMusicTests.swift */; };
+		219BBCC21B102E9900753280 /* OCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 219BBCC11B102E9900753280 /* OCObject.m */; };
+		219BBCC81B103B3200753280 /* libSuperIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCC31B103B3200753280 /* libSuperIDSDK.a */; };
+		219BBCC91B103B3200753280 /* SuperIDSDKSettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCC71B103B3200753280 /* SuperIDSDKSettings.bundle */; };
+		219BBCCC1B105DDF00753280 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCCB1B105DDF00753280 /* CoreTelephony.framework */; };
+		219BBCCE1B105DE800753280 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCCD1B105DE800753280 /* CoreMedia.framework */; };
+		219BBCD01B105DF000753280 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCCF1B105DF000753280 /* AVFoundation.framework */; };
+		219BBCD21B105DF900753280 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCD11B105DF900753280 /* libc++.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		219BBCB01B102E7600753280 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 219BBC921B102E7500753280 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 219BBC991B102E7500753280;
+			remoteInfo = ZHEmotionMusic;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2179EFE51B11F28700560018 /* AdvancedFaceFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedFaceFeatureViewController.swift; path = ../AdvancedFaceFeatureViewController.swift; sourceTree = "<group>"; };
+		219BBC9A1B102E7500753280 /* ZHEmotionMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHEmotionMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		219BBC9E1B102E7600753280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		219BBC9F1B102E7600753280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		219BBCA11B102E7600753280 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		219BBCA41B102E7600753280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		219BBCA61B102E7600753280 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		219BBCA91B102E7600753280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		219BBCAF1B102E7600753280 /* ZHEmotionMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZHEmotionMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		219BBCB41B102E7600753280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		219BBCB51B102E7600753280 /* ZHEmotionMusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZHEmotionMusicTests.swift; sourceTree = "<group>"; };
+		219BBCBF1B102E9800753280 /* ZHEmotionMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHEmotionMusic-Bridging-Header.h"; sourceTree = "<group>"; };
+		219BBCC01B102E9900753280 /* OCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCObject.h; sourceTree = "<group>"; };
+		219BBCC11B102E9900753280 /* OCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCObject.m; sourceTree = "<group>"; };
+		219BBCC31B103B3200753280 /* libSuperIDSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSuperIDSDK.a; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/libSuperIDSDK.a"; sourceTree = "<group>"; };
+		219BBCC41B103B3200753280 /* SIDFaceFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIDFaceFeatureViewController.h; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/SIDFaceFeatureViewController.h"; sourceTree = "<group>"; };
+		219BBCC51B103B3200753280 /* SuperID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperID.h; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/SuperID.h"; sourceTree = "<group>"; };
+		219BBCC61B103B3200753280 /* SuperIDDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperIDDelegate.h; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/SuperIDDelegate.h"; sourceTree = "<group>"; };
+		219BBCC71B103B3200753280 /* SuperIDSDKSettings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SuperIDSDKSettings.bundle; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/SuperIDSDKSettings.bundle"; sourceTree = "<group>"; };
+		219BBCCB1B105DDF00753280 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		219BBCCD1B105DE800753280 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		219BBCCF1B105DF000753280 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		219BBCD11B105DF900753280 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		219BBC971B102E7500753280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219BBCD21B105DF900753280 /* libc++.dylib in Frameworks */,
+				219BBCD01B105DF000753280 /* AVFoundation.framework in Frameworks */,
+				219BBCCE1B105DE800753280 /* CoreMedia.framework in Frameworks */,
+				219BBCCC1B105DDF00753280 /* CoreTelephony.framework in Frameworks */,
+				219BBCC81B103B3200753280 /* libSuperIDSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		219BBCAC1B102E7600753280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		219BBC911B102E7500753280 = {
+			isa = PBXGroup;
+			children = (
+				219BBCD11B105DF900753280 /* libc++.dylib */,
+				219BBCCF1B105DF000753280 /* AVFoundation.framework */,
+				219BBCCD1B105DE800753280 /* CoreMedia.framework */,
+				219BBCCB1B105DDF00753280 /* CoreTelephony.framework */,
+				219BBCC01B102E9900753280 /* OCObject.h */,
+				219BBCC11B102E9900753280 /* OCObject.m */,
+				219BBCCA1B103B9A00753280 /* SuperID_SDK */,
+				219BBC9C1B102E7500753280 /* ZHEmotionMusic */,
+				219BBCB21B102E7600753280 /* ZHEmotionMusicTests */,
+				219BBC9B1B102E7500753280 /* Products */,
+				219BBCBF1B102E9800753280 /* ZHEmotionMusic-Bridging-Header.h */,
+			);
+			sourceTree = "<group>";
+		};
+		219BBC9B1B102E7500753280 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				219BBC9A1B102E7500753280 /* ZHEmotionMusic.app */,
+				219BBCAF1B102E7600753280 /* ZHEmotionMusicTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		219BBC9C1B102E7500753280 /* ZHEmotionMusic */ = {
+			isa = PBXGroup;
+			children = (
+				2179EFE51B11F28700560018 /* AdvancedFaceFeatureViewController.swift */,
+				219BBC9F1B102E7600753280 /* AppDelegate.swift */,
+				219BBCA11B102E7600753280 /* ViewController.swift */,
+				219BBCA31B102E7600753280 /* Main.storyboard */,
+				219BBCA61B102E7600753280 /* Images.xcassets */,
+				219BBCA81B102E7600753280 /* LaunchScreen.xib */,
+				219BBC9D1B102E7600753280 /* Supporting Files */,
+			);
+			path = ZHEmotionMusic;
+			sourceTree = "<group>";
+		};
+		219BBC9D1B102E7600753280 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				219BBC9E1B102E7600753280 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		219BBCB21B102E7600753280 /* ZHEmotionMusicTests */ = {
+			isa = PBXGroup;
+			children = (
+				219BBCB51B102E7600753280 /* ZHEmotionMusicTests.swift */,
+				219BBCB31B102E7600753280 /* Supporting Files */,
+			);
+			path = ZHEmotionMusicTests;
+			sourceTree = "<group>";
+		};
+		219BBCB31B102E7600753280 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				219BBCB41B102E7600753280 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		219BBCCA1B103B9A00753280 /* SuperID_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				219BBCC31B103B3200753280 /* libSuperIDSDK.a */,
+				219BBCC41B103B3200753280 /* SIDFaceFeatureViewController.h */,
+				219BBCC71B103B3200753280 /* SuperIDSDKSettings.bundle */,
+				219BBCC51B103B3200753280 /* SuperID.h */,
+				219BBCC61B103B3200753280 /* SuperIDDelegate.h */,
+			);
+			name = SuperID_SDK;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		219BBC991B102E7500753280 /* ZHEmotionMusic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 219BBCB91B102E7600753280 /* Build configuration list for PBXNativeTarget "ZHEmotionMusic" */;
+			buildPhases = (
+				219BBC961B102E7500753280 /* Sources */,
+				219BBC971B102E7500753280 /* Frameworks */,
+				219BBC981B102E7500753280 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZHEmotionMusic;
+			productName = ZHEmotionMusic;
+			productReference = 219BBC9A1B102E7500753280 /* ZHEmotionMusic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		219BBCAE1B102E7600753280 /* ZHEmotionMusicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 219BBCBC1B102E7600753280 /* Build configuration list for PBXNativeTarget "ZHEmotionMusicTests" */;
+			buildPhases = (
+				219BBCAB1B102E7600753280 /* Sources */,
+				219BBCAC1B102E7600753280 /* Frameworks */,
+				219BBCAD1B102E7600753280 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				219BBCB11B102E7600753280 /* PBXTargetDependency */,
+			);
+			name = ZHEmotionMusicTests;
+			productName = ZHEmotionMusicTests;
+			productReference = 219BBCAF1B102E7600753280 /* ZHEmotionMusicTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		219BBC921B102E7500753280 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = ZH;
+				TargetAttributes = {
+					219BBC991B102E7500753280 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					219BBCAE1B102E7600753280 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 219BBC991B102E7500753280;
+					};
+				};
+			};
+			buildConfigurationList = 219BBC951B102E7500753280 /* Build configuration list for PBXProject "ZHEmotionMusic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 219BBC911B102E7500753280;
+			productRefGroup = 219BBC9B1B102E7500753280 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				219BBC991B102E7500753280 /* ZHEmotionMusic */,
+				219BBCAE1B102E7600753280 /* ZHEmotionMusicTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		219BBC981B102E7500753280 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219BBCC91B103B3200753280 /* SuperIDSDKSettings.bundle in Resources */,
+				219BBCA51B102E7600753280 /* Main.storyboard in Resources */,
+				219BBCAA1B102E7600753280 /* LaunchScreen.xib in Resources */,
+				219BBCA71B102E7600753280 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		219BBCAD1B102E7600753280 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		219BBC961B102E7500753280 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219BBCA21B102E7600753280 /* ViewController.swift in Sources */,
+				219BBCA01B102E7600753280 /* AppDelegate.swift in Sources */,
+				2179EFE61B11F28700560018 /* AdvancedFaceFeatureViewController.swift in Sources */,
+				219BBCC21B102E9900753280 /* OCObject.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		219BBCAB1B102E7600753280 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219BBCB61B102E7600753280 /* ZHEmotionMusicTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		219BBCB11B102E7600753280 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 219BBC991B102E7500753280 /* ZHEmotionMusic */;
+			targetProxy = 219BBCB01B102E7600753280 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		219BBCA31B102E7600753280 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				219BBCA41B102E7600753280 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		219BBCA81B102E7600753280 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				219BBCA91B102E7600753280 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		219BBCB71B102E7600753280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		219BBCB81B102E7600753280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		219BBCBA1B102E7600753280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (7G694RFAFB)";
+				INFOPLIST_FILE = ZHEmotionMusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/zhonghuan/Downloads/SuperID_iOSSDK-master-2/SuperID_SDK",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = ZHEmotionMusic;
+				SWIFT_OBJC_BRIDGING_HEADER = "ZHEmotionMusic-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		219BBCBB1B102E7600753280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (7G694RFAFB)";
+				INFOPLIST_FILE = ZHEmotionMusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/zhonghuan/Downloads/SuperID_iOSSDK-master-2/SuperID_SDK",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = ZHEmotionMusic;
+				SWIFT_OBJC_BRIDGING_HEADER = "ZHEmotionMusic-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		219BBCBD1B102E7600753280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ZHEmotionMusicTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = ZHEmotionMusicTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZHEmotionMusic.app/ZHEmotionMusic";
+			};
+			name = Debug;
+		};
+		219BBCBE1B102E7600753280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ZHEmotionMusicTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = ZHEmotionMusicTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZHEmotionMusic.app/ZHEmotionMusic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		219BBC951B102E7500753280 /* Build configuration list for PBXProject "ZHEmotionMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				219BBCB71B102E7600753280 /* Debug */,
+				219BBCB81B102E7600753280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		219BBCB91B102E7600753280 /* Build configuration list for PBXNativeTarget "ZHEmotionMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				219BBCBA1B102E7600753280 /* Debug */,
+				219BBCBB1B102E7600753280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		219BBCBC1B102E7600753280 /* Build configuration list for PBXNativeTarget "ZHEmotionMusicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				219BBCBD1B102E7600753280 /* Debug */,
+				219BBCBE1B102E7600753280 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 219BBC921B102E7500753280 /* Project object */;
+}
