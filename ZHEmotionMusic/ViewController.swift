@@ -23,6 +23,15 @@ class ViewController: UIViewController , SuperIDDelegate {
     
     /// 第二个Label标签
     @IBOutlet weak var label2: UILabel!
+    
+    /// Circular View
+    @IBOutlet weak var circularProgressView: CircularProgressView!
+    
+    
+    ///  豆瓣
+    let channelsURL = "http://www.douban.com/j/app/radio/channels"  // 频道列表URL
+    let songsURL = "http://douban.fm/j/mine/playlist?channel=0"  // 歌曲列表URL
+
 
     /**
     Description
@@ -39,9 +48,27 @@ class ViewController: UIViewController , SuperIDDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    
+//        self.circularProgressView.backColor = [UIColor colorWithRed:236.0 / 255.0
+//            green:236.0 / 255.0
+//            blue:236.0 / 255.0
+//            alpha:1.0];
+//        self.circularProgressView.progressColor = [UIColor colorWithRed:82.0 / 255.0
+//            green:135.0 / 255.0
+//            blue:237.0 / 255.0
+//            alpha:1.0];
+//        self.circularProgressView.audioURL = [[NSBundle mainBundle] URLForResource:@"我的歌声里" withExtension:@"mp3"];
+//        
+//        self.circularProgressView.lineWidth = 20;
+//        
+//        //set CircularProgressView delegate
+//        self.circularProgressView.delegate = self;
         
-        imageView.layer.masksToBounds = true
-                
+        self.circularProgressView.backColor = UIColor(red: 236.0 / 255.0, green: 236.0 / 255.0, blue: 236.0/255.0, alpha: 1.0)
+        self.circularProgressView.progressColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+        self.circularProgressView.lineWidth = 4
+        self.circularProgressView.audioURL = NSBundle.mainBundle().URLForResource("我的歌声里", withExtension: "mp3")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +78,7 @@ class ViewController: UIViewController , SuperIDDelegate {
     
     
     /**
-    Description 
+    Description
             调用该方法，获取调用相机权限
     */
     func getAuthorityOfCamera(){

@@ -5,4 +5,4 @@
 //#import "OCObject.h"
 
 #import "SuperID.h"
-#import "SIDFaceFeatureViewController.h"
+#import "CircularProgressView.h"

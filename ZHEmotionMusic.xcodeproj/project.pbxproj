@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2179EFE61B11F28700560018 /* AdvancedFaceFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2179EFE51B11F28700560018 /* AdvancedFaceFeatureViewController.swift */; };
+		213F2C341B138A9A00FEE2A4 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 213F2C331B138A9A00FEE2A4 /* CircularProgressView.m */; };
+		213F2C361B1394A500FEE2A4 /* 我的歌声里.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 213F2C351B1394A500FEE2A4 /* 我的歌声里.mp3 */; };
 		219BBCA01B102E7600753280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBC9F1B102E7600753280 /* AppDelegate.swift */; };
 		219BBCA21B102E7600753280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBCA11B102E7600753280 /* ViewController.swift */; };
 		219BBCA51B102E7600753280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCA31B102E7600753280 /* Main.storyboard */; };
@@ -34,7 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2179EFE51B11F28700560018 /* AdvancedFaceFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedFaceFeatureViewController.swift; path = ../AdvancedFaceFeatureViewController.swift; sourceTree = "<group>"; };
+		213F2C321B138A9A00FEE2A4 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
+		213F2C331B138A9A00FEE2A4 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
+		213F2C351B1394A500FEE2A4 /* 我的歌声里.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "我的歌声里.mp3"; sourceTree = "<group>"; };
 		219BBC9A1B102E7500753280 /* ZHEmotionMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHEmotionMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		219BBC9E1B102E7600753280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		219BBC9F1B102E7600753280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		213F2C311B1389DF00FEE2A4 /* CircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				213F2C321B138A9A00FEE2A4 /* CircularProgressView.h */,
+				213F2C331B138A9A00FEE2A4 /* CircularProgressView.m */,
+			);
+			name = CircularProgressView;
+			sourceTree = "<group>";
+		};
 		219BBC911B102E7500753280 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +104,7 @@
 				219BBCC01B102E9900753280 /* OCObject.h */,
 				219BBCC11B102E9900753280 /* OCObject.m */,
 				219BBCCA1B103B9A00753280 /* SuperID_SDK */,
+				213F2C311B1389DF00FEE2A4 /* CircularProgressView */,
 				219BBC9C1B102E7500753280 /* ZHEmotionMusic */,
 				219BBCB21B102E7600753280 /* ZHEmotionMusicTests */,
 				219BBC9B1B102E7500753280 /* Products */,
@@ -111,7 +124,6 @@
 		219BBC9C1B102E7500753280 /* ZHEmotionMusic */ = {
 			isa = PBXGroup;
 			children = (
-				2179EFE51B11F28700560018 /* AdvancedFaceFeatureViewController.swift */,
 				219BBC9F1B102E7600753280 /* AppDelegate.swift */,
 				219BBCA11B102E7600753280 /* ViewController.swift */,
 				219BBCA31B102E7600753280 /* Main.storyboard */,
@@ -125,6 +137,7 @@
 		219BBC9D1B102E7600753280 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				213F2C351B1394A500FEE2A4 /* 我的歌声里.mp3 */,
 				219BBC9E1B102E7600753280 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -242,6 +255,7 @@
 				219BBCC91B103B3200753280 /* SuperIDSDKSettings.bundle in Resources */,
 				219BBCA51B102E7600753280 /* Main.storyboard in Resources */,
 				219BBCAA1B102E7600753280 /* LaunchScreen.xib in Resources */,
+				213F2C361B1394A500FEE2A4 /* 我的歌声里.mp3 in Resources */,
 				219BBCA71B102E7600753280 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,8 +276,8 @@
 			files = (
 				219BBCA21B102E7600753280 /* ViewController.swift in Sources */,
 				219BBCA01B102E7600753280 /* AppDelegate.swift in Sources */,
-				2179EFE61B11F28700560018 /* AdvancedFaceFeatureViewController.swift in Sources */,
 				219BBCC21B102E9900753280 /* OCObject.m in Sources */,
+				213F2C341B138A9A00FEE2A4 /* CircularProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
