@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		213F2C341B138A9A00FEE2A4 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 213F2C331B138A9A00FEE2A4 /* CircularProgressView.m */; };
 		213F2C361B1394A500FEE2A4 /* 我的歌声里.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 213F2C351B1394A500FEE2A4 /* 我的歌声里.mp3 */; };
+		213F2C381B140B7100FEE2A4 /* SwitchingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F2C371B140B7100FEE2A4 /* SwitchingImage.swift */; };
+		213F2C3A1B145BCA00FEE2A4 /*  HttpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F2C391B145BCA00FEE2A4 /*  HttpController.swift */; };
+		213F2C3E1B14973D00FEE2A4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F2C3D1B14973D00FEE2A4 /* ImageLoader.swift */; };
 		219BBCA01B102E7600753280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBC9F1B102E7600753280 /* AppDelegate.swift */; };
 		219BBCA21B102E7600753280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBCA11B102E7600753280 /* ViewController.swift */; };
 		219BBCA51B102E7600753280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCA31B102E7600753280 /* Main.storyboard */; };
 		219BBCA71B102E7600753280 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCA61B102E7600753280 /* Images.xcassets */; };
 		219BBCAA1B102E7600753280 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCA81B102E7600753280 /* LaunchScreen.xib */; };
 		219BBCB61B102E7600753280 /* ZHEmotionMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBCB51B102E7600753280 /* ZHEmotionMusicTests.swift */; };
-		219BBCC21B102E9900753280 /* OCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 219BBCC11B102E9900753280 /* OCObject.m */; };
 		219BBCC81B103B3200753280 /* libSuperIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCC31B103B3200753280 /* libSuperIDSDK.a */; };
 		219BBCC91B103B3200753280 /* SuperIDSDKSettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCC71B103B3200753280 /* SuperIDSDKSettings.bundle */; };
 		219BBCCC1B105DDF00753280 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCCB1B105DDF00753280 /* CoreTelephony.framework */; };
@@ -38,6 +40,9 @@
 		213F2C321B138A9A00FEE2A4 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
 		213F2C331B138A9A00FEE2A4 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
 		213F2C351B1394A500FEE2A4 /* 我的歌声里.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "我的歌声里.mp3"; sourceTree = "<group>"; };
+		213F2C371B140B7100FEE2A4 /* SwitchingImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchingImage.swift; path = ZHEmotionMusic/SwitchingImage.swift; sourceTree = "<group>"; };
+		213F2C391B145BCA00FEE2A4 /*  HttpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = " HttpController.swift"; path = "ZHEmotionMusic/ HttpController.swift"; sourceTree = "<group>"; };
+		213F2C3D1B14973D00FEE2A4 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		219BBC9A1B102E7500753280 /* ZHEmotionMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHEmotionMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		219BBC9E1B102E7600753280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		219BBC9F1B102E7600753280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,8 +54,6 @@
 		219BBCB41B102E7600753280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		219BBCB51B102E7600753280 /* ZHEmotionMusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZHEmotionMusicTests.swift; sourceTree = "<group>"; };
 		219BBCBF1B102E9800753280 /* ZHEmotionMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHEmotionMusic-Bridging-Header.h"; sourceTree = "<group>"; };
-		219BBCC01B102E9900753280 /* OCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCObject.h; sourceTree = "<group>"; };
-		219BBCC11B102E9900753280 /* OCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCObject.m; sourceTree = "<group>"; };
 		219BBCC31B103B3200753280 /* libSuperIDSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSuperIDSDK.a; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/libSuperIDSDK.a"; sourceTree = "<group>"; };
 		219BBCC41B103B3200753280 /* SIDFaceFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIDFaceFeatureViewController.h; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/SIDFaceFeatureViewController.h"; sourceTree = "<group>"; };
 		219BBCC51B103B3200753280 /* SuperID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperID.h; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/SuperID.h"; sourceTree = "<group>"; };
@@ -94,17 +97,31 @@
 			name = CircularProgressView;
 			sourceTree = "<group>";
 		};
+		213F2C3B1B1495F100FEE2A4 /* HttpController */ = {
+			isa = PBXGroup;
+			children = (
+				213F2C391B145BCA00FEE2A4 /*  HttpController.swift */,
+				213F2C3D1B14973D00FEE2A4 /* ImageLoader.swift */,
+			);
+			name = HttpController;
+			sourceTree = "<group>";
+		};
+		213F2C3C1B14960C00FEE2A4 /* SwitchingImage */ = {
+			isa = PBXGroup;
+			children = (
+				213F2C371B140B7100FEE2A4 /* SwitchingImage.swift */,
+			);
+			name = SwitchingImage;
+			sourceTree = "<group>";
+		};
 		219BBC911B102E7500753280 = {
 			isa = PBXGroup;
 			children = (
-				219BBCD11B105DF900753280 /* libc++.dylib */,
-				219BBCCF1B105DF000753280 /* AVFoundation.framework */,
-				219BBCCD1B105DE800753280 /* CoreMedia.framework */,
-				219BBCCB1B105DDF00753280 /* CoreTelephony.framework */,
-				219BBCC01B102E9900753280 /* OCObject.h */,
-				219BBCC11B102E9900753280 /* OCObject.m */,
+				21D667D71B14E44600638711 /* Framework */,
 				219BBCCA1B103B9A00753280 /* SuperID_SDK */,
 				213F2C311B1389DF00FEE2A4 /* CircularProgressView */,
+				213F2C3B1B1495F100FEE2A4 /* HttpController */,
+				213F2C3C1B14960C00FEE2A4 /* SwitchingImage */,
 				219BBC9C1B102E7500753280 /* ZHEmotionMusic */,
 				219BBCB21B102E7600753280 /* ZHEmotionMusicTests */,
 				219BBC9B1B102E7500753280 /* Products */,
@@ -170,6 +187,17 @@
 				219BBCC61B103B3200753280 /* SuperIDDelegate.h */,
 			);
 			name = SuperID_SDK;
+			sourceTree = "<group>";
+		};
+		21D667D71B14E44600638711 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				219BBCCB1B105DDF00753280 /* CoreTelephony.framework */,
+				219BBCCD1B105DE800753280 /* CoreMedia.framework */,
+				219BBCD11B105DF900753280 /* libc++.dylib */,
+				219BBCCF1B105DF000753280 /* AVFoundation.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,9 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213F2C3E1B14973D00FEE2A4 /* ImageLoader.swift in Sources */,
+				213F2C3A1B145BCA00FEE2A4 /*  HttpController.swift in Sources */,
+				213F2C381B140B7100FEE2A4 /* SwitchingImage.swift in Sources */,
 				219BBCA21B102E7600753280 /* ViewController.swift in Sources */,
 				219BBCA01B102E7600753280 /* AppDelegate.swift in Sources */,
-				219BBCC21B102E9900753280 /* OCObject.m in Sources */,
 				213F2C341B138A9A00FEE2A4 /* CircularProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

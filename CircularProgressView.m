@@ -2,18 +2,16 @@
 //  CircularProgressView.m
 //  CircularProgressView
 //
-//  Created by nijino saki on 13-3-2.
-//  Copyright (c) 2013年 nijino. All rights reserved.
-//  QQ:20118368
-//  http://www.nijino.cn
+//  Created by 钟桓 on 15/5/23.
+//  Copyright (c) 2015年 ZH. All rights reserved.
 
 #import "CircularProgressView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface CircularProgressView ()<AVAudioPlayerDelegate>
+@interface CircularProgressView ()
 
 @property (nonatomic) CADisplayLink *displayLink;
-@property (nonatomic) AVAudioPlayer *player;//an AVAudioPlayer instance
+@property (nonatomic) MPMoviePlayerController *player;//an AVAudioPlayer instance
 @property (nonatomic) CAShapeLayer *progressLayer;
 @property (nonatomic) float progress;
 @property (nonatomic) CGFloat angle;//angle between two lines
@@ -33,9 +31,8 @@
         _backColor = backColor;
         _progressColor = progressColor;
         self.lineWidth = lineWidth;
-        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:audioURL error:nil];
         _audioURL = audioURL;
-        _player.delegate = self;
+//        _player.delegate = self;
         [_player prepareToPlay];
     }
     return self;
@@ -50,11 +47,15 @@
 }
 
 - (void)setUp{
+    
+    _player = [[MPMoviePlayerController alloc] init];
+    
     self.backgroundColor = [UIColor clearColor];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     [self addGestureRecognizer:tapGesture];
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     [self addGestureRecognizer:panGesture];
+    [self setNotification];
 }
 
 - (void)setLineWidth:(CGFloat)lineWidth{
@@ -68,8 +69,8 @@
 
 - (void)setAudioURL:(NSURL *)audioURL{
     if (audioURL) {
-        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:audioURL error:nil];
-        self.player.delegate = self;
+        [self stop];
+        _player.contentURL = audioURL;
         self.duration = self.player.duration;
         [self.player prepareToPlay];
     }
@@ -104,15 +105,17 @@
 
 - (void)updateProgressCircle{
     //update progress value
-    self.progress = (float) (self.player.currentTime / self.player.duration);
+    self.progress = (float) (self.player.currentPlaybackTime / self.player.duration);
     if (self.delegate && [self.delegate conformsToProtocol:@protocol(CircularProgressViewDelegate)]) {
         [self.delegate updateProgressViewWithPlayer:self.player];
     }
 }
 
+
 - (void)play{
-    if (!self.player.playing) {
-        if (!self.displayLink) {
+    
+    if ( self.player.playbackState != MPMoviePlaybackStatePlaying) {
+        if (self.displayLink == nil) {
             self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateProgressCircle)];
             self.displayLink.frameInterval = 6;
             [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
@@ -120,11 +123,12 @@
             self.displayLink.paused = NO;
         }
         [self.player play];
+//        printf("play!");
     }
 }
 
 - (void)pause{
-    if (self.player.playing) {
+    if (self.player.playbackState == MPMoviePlaybackStatePlaying) {
         self.displayLink.paused = YES;
         [self.player pause];
     }
@@ -133,27 +137,35 @@
 - (void)stop{
     [self.player stop];
     self.progress = 0;
-    self.player.currentTime = 0;
+    self.player.currentPlaybackTime = 0;
+    
     [self.displayLink invalidate];
     self.displayLink = nil;
 }
 
-#pragma mark AVAudioPlayerDelegate method
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    if (flag) {
+- (void) setNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(audioPlayerDidFinishPlaying)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:nil];
+}
+
+#pragma mark MPMoviePlayer notification handler method
+- (void)audioPlayerDidFinishPlaying{
         [self.displayLink invalidate];
         self.displayLink = nil;
         //restore progress value
         self.progress = 0;
+//    printf("结束！");
         [self.delegate playerDidFinishPlaying];
-    }
 }
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)recognizer{
     CGPoint point = [recognizer locationInView:self];
     self.angle = [self angleFromStartToPoint:point];
-    self.player.currentTime = self.player.duration * (self.angle / (2 * M_PI));
-    if (!self.player.playing) {
+    self.player.currentPlaybackTime = self.player.duration * (self.angle / (2 * M_PI));
+    self.progress = self.angle/(M_PI * 2);
+    if (self.player.playbackState != MPMoviePlaybackStatePlaying) {
         [self play];
     }
     [self.delegate updatePlayOrPauseButton];
@@ -171,11 +183,12 @@
     }
 
     else if (recognizer.state == UIGestureRecognizerStateEnded) {
-        self.player.currentTime = self.player.duration * (self.angle / (2 * M_PI));
-        if (!self.player.playing) [self play];
+        self.player.currentPlaybackTime = self.player.duration * (self.angle / (2 * M_PI));
+        if (self.player.playbackState != MPMoviePlaybackStatePlaying)
+            [self play];
         else
             self.displayLink.paused = NO;
-        [self.delegate updatePlayOrPauseButton];
+       [self.delegate updatePlayOrPauseButton];
     }
 }
 

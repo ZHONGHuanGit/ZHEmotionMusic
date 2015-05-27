@@ -9,8 +9,20 @@
 import UIKit
 import AVFoundation
 import Foundation
+import MediaPlayer
 
-class ViewController: UIViewController , SuperIDDelegate {
+/**
+    枚举类型，记录心情
+
+- happy: 快乐的心情
+- sad:   悲伤的心情
+*/
+enum Emotion{
+    case happy
+    case sad
+}
+
+class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , CircularProgressViewDelegate{
     
     /// 一登调用接口的实例
     var superIdSdk : SuperID?;
@@ -27,12 +39,27 @@ class ViewController: UIViewController , SuperIDDelegate {
     /// Circular View
     @IBOutlet weak var circularProgressView: CircularProgressView!
     
+    /// 音乐播放器
+    var audioPlayer : MPMoviePlayerController = MPMoviePlayerController()  //音乐播放器
     
-    ///  豆瓣
-    let channelsURL = "http://www.douban.com/j/app/radio/channels"  // 频道列表URL
-    let songsURL = "http://douban.fm/j/mine/playlist?channel=0"  // 歌曲列表URL
+    /// 当前的心情
+    var emotion : Emotion = Emotion.happy
+    
+    /// 快乐就听摇滚
+    let happySongsURL = "http://douban.fm/j/mine/playlist?channel=7"
+    
+    /// 悲伤就听R&B
+    let sadSongsURL = "http://douban.fm/j/mine/playlist?channel=14"
 
-
+    /// 用来获取网络数据
+    var http : HttpController = HttpController()
+    
+    /// 歌曲列表
+    var songs = NSArray()
+    
+    /// 记录当前播放歌曲在songs内的位置。
+    var id = 0;
+    
     /**
     Description
         View将出现时，所做的操作，这里添加了SDK的委托声明
@@ -48,26 +75,15 @@ class ViewController: UIViewController , SuperIDDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
-//        self.circularProgressView.backColor = [UIColor colorWithRed:236.0 / 255.0
-//            green:236.0 / 255.0
-//            blue:236.0 / 255.0
-//            alpha:1.0];
-//        self.circularProgressView.progressColor = [UIColor colorWithRed:82.0 / 255.0
-//            green:135.0 / 255.0
-//            blue:237.0 / 255.0
-//            alpha:1.0];
-//        self.circularProgressView.audioURL = [[NSBundle mainBundle] URLForResource:@"我的歌声里" withExtension:@"mp3"];
-//        
-//        self.circularProgressView.lineWidth = 20;
-//        
-//        //set CircularProgressView delegate
-//        self.circularProgressView.delegate = self;
         
+        //初始化circular的配置
         self.circularProgressView.backColor = UIColor(red: 236.0 / 255.0, green: 236.0 / 255.0, blue: 236.0/255.0, alpha: 1.0)
         self.circularProgressView.progressColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-        self.circularProgressView.lineWidth = 4
-        self.circularProgressView.audioURL = NSBundle.mainBundle().URLForResource("我的歌声里", withExtension: "mp3")
+        self.circularProgressView.lineWidth = 5
+        self.circularProgressView.delegate = self
+        
+        //http的处理交给当前实现HttpProtocol的ViewController来处理
+        http.delegate = self
         
     }
 
@@ -75,13 +91,15 @@ class ViewController: UIViewController , SuperIDDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+   
+// MARK: - SuperIDDelegate Method
     
     /**
     Description
             调用该方法，获取调用相机权限
     */
     func getAuthorityOfCamera(){
+        
         var status:AVAuthorizationStatus =  AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
         
         
@@ -124,15 +142,26 @@ class ViewController: UIViewController , SuperIDDelegate {
                 var smileResult = info["smiling"]!
                 var result = smileResult["result"] as! Int
                 var score = smileResult["score"] as! Double
-                println(score)
+//                println(score)
                 if result == 1 {
+                    //更新心情为happy
+                    emotion = Emotion.happy
+                    
                     imageView.image = UIImage(named: "happy")
                     label1.text = "诶哟！"
                     label2.text = "今天心情不错哦！"
+                    //获取happy歌曲的数据
+                    http.onSearch(happySongsURL)
+                    
                 }else{
+                    //更新心情为sad
+                    emotion = Emotion.sad
+                    
                     imageView.image = UIImage(named: "sad")
                     label1.text = "唉！一言以蔽之"
                     label2.text = "心好涩"
+                    //获取sad歌曲的数据
+                    http.onSearch(sadSongsURL)
                 }
             }
             
@@ -143,7 +172,8 @@ class ViewController: UIViewController , SuperIDDelegate {
             println("\(error.code)   \(error.description)")
         }
     }
-
+    
+// MARK: - Gesture handler Action
     /**
     Description
         处理用户长按屏幕的行动
@@ -167,6 +197,129 @@ class ViewController: UIViewController , SuperIDDelegate {
         }
         
     }
+    
+    
+    
+// MARK: - CircularProgressViewDelegate Method
+    
+//    - (void)updateProgressViewWithPlayer:(AVAudioPlayer *)player;
+//    - (void)updatePlayOrPauseButton;
+//    - (void)playerDidFinishPlaying;
+
+    /**
+        歌曲暂停时调用
+    */
+    func updatePlayOrPauseButton() {
+        
+    }
+
+    /**
+        可以使用该方法，通过player的信息，对view进行更新。
+    
+    :param: player 播放器
+    */
+    func updateProgressViewWithPlayer(player: MPMoviePlayerController!) {
+        
+    }
+    
+    /**
+        每当播放结束时调用
+    */
+    func playerDidFinishPlaying() {
+        
+        self.id+=1;
+//        println(self.id)
+        
+        //如果最后一首歌曲播放完毕，需要再次访问网络，获取资源
+        if self.id == songs.count {
+            switch emotion{
+            case .happy :
+                http.onSearch(happySongsURL)
+            case .sad :
+                http.onSearch(sadSongsURL)
+            }
+//            println("songs is over")
+            self.id=0
+        }
+        
+        //放在主线程，提高反应速度
+        dispatch_async(dispatch_get_main_queue(), {
+            () ->Void in
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            let song = self.songs[self.id] as! NSDictionary
+            //update song
+            self.updateSong(song)
+        })
+        
+    }
+    
+
+// MARK: - HttpProtocol Method
+    /**
+        负责处理从网络上获取的数据
+    
+    :param: results 获取得到的数据
+    */
+    func didReceiveResults(results : NSDictionary){
+        println("数据成功接收")
+//        println(results)
+        self.songs = results["song"] as! NSArray
+        
+        let song = self.songs[0] as! NSDictionary
+        
+        self.id = 0;
+        
+        //更新界面UI的操作，放在主线程，提高反应速度
+        dispatch_async(dispatch_get_main_queue(), {
+            () ->Void in
+            
+            self.updateSong(song)
+            
+        })
+        
+    }
+    
+    /**
+     负责更新歌曲
+    
+    :param: song 需要更新的歌曲信息
+    */
+    func updateSong(song : NSDictionary){
+        //update audio player
+        let songURL =  song["url"] as! String
+        self.circularProgressView.stop()
+        self.circularProgressView.audioURL = NSURL(string: songURL)
+        self.circularProgressView.play()
+        
+        //update image view
+        let imageUrl = song["picture"] as! String
+        self.onSetImage(imageUrl)
+        
+        //update song title --> label1
+        label1.text = song["title"] as? String
+        
+        //update artist  --> label2
+        label2.text = song["artist"] as? String
+        label2.font = label2.font.fontWithSize(13)
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    }
+
+    /**
+        处理图片，调用ImageLoader单例进行图片缓存。
+    
+    :param: url
+    */
+    func onSetImage(url : String){
+        
+        ImageLoader.sharedLoader.imageForUrl(url, completionHandler:{(image: UIImage?, url: String) in
+            self.imageView.image = image
+        })
+        
+    }
+
+    
+    
     
 }
 

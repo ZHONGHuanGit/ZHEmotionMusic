@@ -2,19 +2,21 @@
 //  CircularProgressView.h
 //  CircularProgressView
 //
-//  Created by nijino saki on 13-3-2.
-//  Copyright (c) 2013年 nijino. All rights reserved.
-//  QQ:20118368
-//  http://www.nijino.cn
+//
+//  Created by 钟桓 on 15/5/23.
+//  Copyright (c) 2015年 ZH. All rights reserved.
+//
+
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
+//#import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @protocol CircularProgressViewDelegate <NSObject>
 
 @optional
 
-- (void)updateProgressViewWithPlayer:(AVAudioPlayer *)player;
+- (void)updateProgressViewWithPlayer:(MPMoviePlayerController *)player;
 - (void)updatePlayOrPauseButton;
 - (void)playerDidFinishPlaying;
 
