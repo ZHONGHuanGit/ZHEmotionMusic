@@ -7,23 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		213F2C341B138A9A00FEE2A4 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 213F2C331B138A9A00FEE2A4 /* CircularProgressView.m */; };
+		211C93011B16F94000CDB040 /* MoodUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C93001B16F94000CDB040 /* MoodUIView.swift */; };
+		211C930C1B16FB6F00CDB040 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C930B1B16FB6F00CDB040 /* CircularProgressView.m */; };
+		211C930F1B16FB9E00CDB040 /*  HttpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C930D1B16FB9E00CDB040 /*  HttpController.swift */; };
+		211C93101B16FB9E00CDB040 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C930E1B16FB9E00CDB040 /* ImageLoader.swift */; };
+		211C93131B16FBFC00CDB040 /* SwitchingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C93121B16FBFC00CDB040 /* SwitchingImage.swift */; };
 		213F2C361B1394A500FEE2A4 /* 我的歌声里.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 213F2C351B1394A500FEE2A4 /* 我的歌声里.mp3 */; };
-		213F2C381B140B7100FEE2A4 /* SwitchingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F2C371B140B7100FEE2A4 /* SwitchingImage.swift */; };
-		213F2C3A1B145BCA00FEE2A4 /*  HttpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F2C391B145BCA00FEE2A4 /*  HttpController.swift */; };
-		213F2C3E1B14973D00FEE2A4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F2C3D1B14973D00FEE2A4 /* ImageLoader.swift */; };
 		219BBCA01B102E7600753280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBC9F1B102E7600753280 /* AppDelegate.swift */; };
 		219BBCA21B102E7600753280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBCA11B102E7600753280 /* ViewController.swift */; };
 		219BBCA51B102E7600753280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCA31B102E7600753280 /* Main.storyboard */; };
 		219BBCA71B102E7600753280 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCA61B102E7600753280 /* Images.xcassets */; };
 		219BBCAA1B102E7600753280 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCA81B102E7600753280 /* LaunchScreen.xib */; };
 		219BBCB61B102E7600753280 /* ZHEmotionMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219BBCB51B102E7600753280 /* ZHEmotionMusicTests.swift */; };
-		219BBCC81B103B3200753280 /* libSuperIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCC31B103B3200753280 /* libSuperIDSDK.a */; };
-		219BBCC91B103B3200753280 /* SuperIDSDKSettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 219BBCC71B103B3200753280 /* SuperIDSDKSettings.bundle */; };
 		219BBCCC1B105DDF00753280 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCCB1B105DDF00753280 /* CoreTelephony.framework */; };
 		219BBCCE1B105DE800753280 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCCD1B105DE800753280 /* CoreMedia.framework */; };
 		219BBCD01B105DF000753280 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCCF1B105DF000753280 /* AVFoundation.framework */; };
 		219BBCD21B105DF900753280 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 219BBCD11B105DF900753280 /* libc++.dylib */; };
+		21AA791E1B17066200174B84 /* libSuperIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AA79191B17066200174B84 /* libSuperIDSDK.a */; };
+		21AA791F1B17066200174B84 /* SuperIDSDKSettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21AA791D1B17066200174B84 /* SuperIDSDKSettings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,12 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		213F2C321B138A9A00FEE2A4 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
-		213F2C331B138A9A00FEE2A4 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
+		211C93001B16F94000CDB040 /* MoodUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodUIView.swift; sourceTree = "<group>"; };
+		211C930A1B16FB6F00CDB040 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularProgressView.h; path = ZHEmotionMusic/CircularProgressView/CircularProgressView.h; sourceTree = "<group>"; };
+		211C930B1B16FB6F00CDB040 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularProgressView.m; path = ZHEmotionMusic/CircularProgressView/CircularProgressView.m; sourceTree = "<group>"; };
+		211C930D1B16FB9E00CDB040 /*  HttpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = " HttpController.swift"; path = "ZHEmotionMusic/HttpController/ HttpController.swift"; sourceTree = "<group>"; };
+		211C930E1B16FB9E00CDB040 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = ZHEmotionMusic/HttpController/ImageLoader.swift; sourceTree = "<group>"; };
+		211C93121B16FBFC00CDB040 /* SwitchingImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchingImage.swift; path = ZHEmotionMusic/SwitchingImage/SwitchingImage.swift; sourceTree = "<group>"; };
+		211C93201B16FE6400CDB040 /* ZHEmotionMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHEmotionMusic-Bridging-Header.h"; sourceTree = "<group>"; };
 		213F2C351B1394A500FEE2A4 /* 我的歌声里.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "我的歌声里.mp3"; sourceTree = "<group>"; };
-		213F2C371B140B7100FEE2A4 /* SwitchingImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchingImage.swift; path = ZHEmotionMusic/SwitchingImage.swift; sourceTree = "<group>"; };
-		213F2C391B145BCA00FEE2A4 /*  HttpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = " HttpController.swift"; path = "ZHEmotionMusic/ HttpController.swift"; sourceTree = "<group>"; };
-		213F2C3D1B14973D00FEE2A4 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		219BBC9A1B102E7500753280 /* ZHEmotionMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHEmotionMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		219BBC9E1B102E7600753280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		219BBC9F1B102E7600753280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,16 +56,15 @@
 		219BBCAF1B102E7600753280 /* ZHEmotionMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZHEmotionMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		219BBCB41B102E7600753280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		219BBCB51B102E7600753280 /* ZHEmotionMusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZHEmotionMusicTests.swift; sourceTree = "<group>"; };
-		219BBCBF1B102E9800753280 /* ZHEmotionMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHEmotionMusic-Bridging-Header.h"; sourceTree = "<group>"; };
-		219BBCC31B103B3200753280 /* libSuperIDSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSuperIDSDK.a; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/libSuperIDSDK.a"; sourceTree = "<group>"; };
-		219BBCC41B103B3200753280 /* SIDFaceFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIDFaceFeatureViewController.h; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/SIDFaceFeatureViewController.h"; sourceTree = "<group>"; };
-		219BBCC51B103B3200753280 /* SuperID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperID.h; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/SuperID.h"; sourceTree = "<group>"; };
-		219BBCC61B103B3200753280 /* SuperIDDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperIDDelegate.h; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/SuperIDDelegate.h"; sourceTree = "<group>"; };
-		219BBCC71B103B3200753280 /* SuperIDSDKSettings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SuperIDSDKSettings.bundle; path = "../../Downloads/SuperID_iOSSDK-master-2/SuperID_SDK/SuperIDSDKSettings.bundle"; sourceTree = "<group>"; };
 		219BBCCB1B105DDF00753280 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		219BBCCD1B105DE800753280 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		219BBCCF1B105DF000753280 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		219BBCD11B105DF900753280 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		21AA79191B17066200174B84 /* libSuperIDSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSuperIDSDK.a; sourceTree = "<group>"; };
+		21AA791A1B17066200174B84 /* SIDFaceFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDFaceFeatureViewController.h; sourceTree = "<group>"; };
+		21AA791B1B17066200174B84 /* SuperID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperID.h; sourceTree = "<group>"; };
+		21AA791C1B17066200174B84 /* SuperIDDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperIDDelegate.h; sourceTree = "<group>"; };
+		21AA791D1B17066200174B84 /* SuperIDSDKSettings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SuperIDSDKSettings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,11 +72,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AA791E1B17066200174B84 /* libSuperIDSDK.a in Frameworks */,
 				219BBCD21B105DF900753280 /* libc++.dylib in Frameworks */,
 				219BBCD01B105DF000753280 /* AVFoundation.framework in Frameworks */,
 				219BBCCE1B105DE800753280 /* CoreMedia.framework in Frameworks */,
 				219BBCCC1B105DDF00753280 /* CoreTelephony.framework in Frameworks */,
-				219BBCC81B103B3200753280 /* libSuperIDSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,8 +93,8 @@
 		213F2C311B1389DF00FEE2A4 /* CircularProgressView */ = {
 			isa = PBXGroup;
 			children = (
-				213F2C321B138A9A00FEE2A4 /* CircularProgressView.h */,
-				213F2C331B138A9A00FEE2A4 /* CircularProgressView.m */,
+				211C930A1B16FB6F00CDB040 /* CircularProgressView.h */,
+				211C930B1B16FB6F00CDB040 /* CircularProgressView.m */,
 			);
 			name = CircularProgressView;
 			sourceTree = "<group>";
@@ -100,8 +102,8 @@
 		213F2C3B1B1495F100FEE2A4 /* HttpController */ = {
 			isa = PBXGroup;
 			children = (
-				213F2C391B145BCA00FEE2A4 /*  HttpController.swift */,
-				213F2C3D1B14973D00FEE2A4 /* ImageLoader.swift */,
+				211C930D1B16FB9E00CDB040 /*  HttpController.swift */,
+				211C930E1B16FB9E00CDB040 /* ImageLoader.swift */,
 			);
 			name = HttpController;
 			sourceTree = "<group>";
@@ -109,7 +111,7 @@
 		213F2C3C1B14960C00FEE2A4 /* SwitchingImage */ = {
 			isa = PBXGroup;
 			children = (
-				213F2C371B140B7100FEE2A4 /* SwitchingImage.swift */,
+				211C93121B16FBFC00CDB040 /* SwitchingImage.swift */,
 			);
 			name = SwitchingImage;
 			sourceTree = "<group>";
@@ -117,15 +119,15 @@
 		219BBC911B102E7500753280 = {
 			isa = PBXGroup;
 			children = (
+				211C93201B16FE6400CDB040 /* ZHEmotionMusic-Bridging-Header.h */,
+				21AA79181B17066200174B84 /* SuperID_SDK */,
 				21D667D71B14E44600638711 /* Framework */,
-				219BBCCA1B103B9A00753280 /* SuperID_SDK */,
 				213F2C311B1389DF00FEE2A4 /* CircularProgressView */,
 				213F2C3B1B1495F100FEE2A4 /* HttpController */,
 				213F2C3C1B14960C00FEE2A4 /* SwitchingImage */,
 				219BBC9C1B102E7500753280 /* ZHEmotionMusic */,
 				219BBCB21B102E7600753280 /* ZHEmotionMusicTests */,
 				219BBC9B1B102E7500753280 /* Products */,
-				219BBCBF1B102E9800753280 /* ZHEmotionMusic-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +143,7 @@
 		219BBC9C1B102E7500753280 /* ZHEmotionMusic */ = {
 			isa = PBXGroup;
 			children = (
+				211C93001B16F94000CDB040 /* MoodUIView.swift */,
 				219BBC9F1B102E7600753280 /* AppDelegate.swift */,
 				219BBCA11B102E7600753280 /* ViewController.swift */,
 				219BBCA31B102E7600753280 /* Main.storyboard */,
@@ -177,16 +180,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		219BBCCA1B103B9A00753280 /* SuperID_SDK */ = {
+		21AA79181B17066200174B84 /* SuperID_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				219BBCC31B103B3200753280 /* libSuperIDSDK.a */,
-				219BBCC41B103B3200753280 /* SIDFaceFeatureViewController.h */,
-				219BBCC71B103B3200753280 /* SuperIDSDKSettings.bundle */,
-				219BBCC51B103B3200753280 /* SuperID.h */,
-				219BBCC61B103B3200753280 /* SuperIDDelegate.h */,
+				21AA79191B17066200174B84 /* libSuperIDSDK.a */,
+				21AA791A1B17066200174B84 /* SIDFaceFeatureViewController.h */,
+				21AA791B1B17066200174B84 /* SuperID.h */,
+				21AA791C1B17066200174B84 /* SuperIDDelegate.h */,
+				21AA791D1B17066200174B84 /* SuperIDSDKSettings.bundle */,
 			);
 			name = SuperID_SDK;
+			path = ZHEmotionMusic/SuperID_SDK;
 			sourceTree = "<group>";
 		};
 		21D667D71B14E44600638711 /* Framework */ = {
@@ -280,7 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				219BBCC91B103B3200753280 /* SuperIDSDKSettings.bundle in Resources */,
+				21AA791F1B17066200174B84 /* SuperIDSDKSettings.bundle in Resources */,
 				219BBCA51B102E7600753280 /* Main.storyboard in Resources */,
 				219BBCAA1B102E7600753280 /* LaunchScreen.xib in Resources */,
 				213F2C361B1394A500FEE2A4 /* 我的歌声里.mp3 in Resources */,
@@ -302,12 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				213F2C3E1B14973D00FEE2A4 /* ImageLoader.swift in Sources */,
-				213F2C3A1B145BCA00FEE2A4 /*  HttpController.swift in Sources */,
-				213F2C381B140B7100FEE2A4 /* SwitchingImage.swift in Sources */,
+				211C93101B16FB9E00CDB040 /* ImageLoader.swift in Sources */,
+				211C930F1B16FB9E00CDB040 /*  HttpController.swift in Sources */,
+				211C93131B16FBFC00CDB040 /* SwitchingImage.swift in Sources */,
 				219BBCA21B102E7600753280 /* ViewController.swift in Sources */,
 				219BBCA01B102E7600753280 /* AppDelegate.swift in Sources */,
-				213F2C341B138A9A00FEE2A4 /* CircularProgressView.m in Sources */,
+				211C930C1B16FB6F00CDB040 /* CircularProgressView.m in Sources */,
+				211C93011B16F94000CDB040 /* MoodUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,12 +447,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/zhonghuan/Downloads/SuperID_iOSSDK-master-2/SuperID_SDK",
+					"$(PROJECT_DIR)/SuperID_SDK",
+					"$(PROJECT_DIR)/ZHEmotionMusic/SuperID_SDK",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lstdc++",
 				);
 				PRODUCT_NAME = ZHEmotionMusic;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZHEmotionMusic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -465,12 +473,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/zhonghuan/Downloads/SuperID_iOSSDK-master-2/SuperID_SDK",
+					"$(PROJECT_DIR)/SuperID_SDK",
+					"$(PROJECT_DIR)/ZHEmotionMusic/SuperID_SDK",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lstdc++",
 				);
 				PRODUCT_NAME = ZHEmotionMusic;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZHEmotionMusic-Bridging-Header.h";
 			};
 			name = Release;

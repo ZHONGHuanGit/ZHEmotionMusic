@@ -30,6 +30,7 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
     ///ImageView实例
     @IBOutlet weak var imageView: UIImageView!
     
+
     ///第一个Label标签
     @IBOutlet weak var label1: UILabel!
     
@@ -39,8 +40,11 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
     /// Circular View
     @IBOutlet weak var circularProgressView: CircularProgressView!
     
-    /// 音乐播放器
-    var audioPlayer : MPMoviePlayerController = MPMoviePlayerController()  //音乐播放器
+    @IBOutlet weak var moodView: MoodUIView!
+    
+    
+//    /// 音乐播放器
+//    var audioPlayer : MPMoviePlayerController = MPMoviePlayerController()  //音乐播放器
     
     /// 当前的心情
     var emotion : Emotion = Emotion.happy
@@ -85,7 +89,20 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
         //http的处理交给当前实现HttpProtocol的ViewController来处理
         http.delegate = self
         
+        //添加Swipgesture
+        var up = UISwipeGestureRecognizer(target: self, action: "swipeHandler:")
+        var down = UISwipeGestureRecognizer(target: self, action: "swipeHandler:")
+        
+        up.direction = .Up
+        down.direction = .Down
+        
+        self.view.addGestureRecognizer(up)
+        self.view.addGestureRecognizer(down)
+        
+        http.onSearch(happySongsURL)
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -287,6 +304,8 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
     func updateSong(song : NSDictionary){
         //update audio player
         let songURL =  song["url"] as! String
+//        println(songURL)
+        
         self.circularProgressView.stop()
         self.circularProgressView.audioURL = NSURL(string: songURL)
         self.circularProgressView.play()
@@ -318,8 +337,59 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
         
     }
 
+  // MARK: - moodView Show
     
-    
+    func swipeHandler(sender : UISwipeGestureRecognizer){
+        
+        var frameY = self.view.frame.height
+        
+        if sender.direction == .Up{
+//            self.moodView.hidden = false
+            let h = frameY - self.moodView.center.y
+            println("UP")
+            println(h)
+            if h < 0 {
+
+                UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                    
+                    self.moodView.transform = CGAffineTransformMakeTranslation(0, -120)
+                    
+                    }, completion: { (ok) -> Void in
+                    self.moodView.center.y -= 120
+                    self.moodView.transform = CGAffineTransformMakeTranslation(0, 0)
+                    println("after  y:\(self.moodView.center.y)")
+                })
+                
+            }
+            
+            
+        }
+        
+        if sender.direction == .Down{
+//            self.moodView.hidden = true
+            println("Down")
+            
+            let h = frameY - self.moodView.center.y
+            
+            println(h)
+            
+            if h > 0 {
+                
+                UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                    
+                    self.moodView.transform = CGAffineTransformMakeTranslation(0, 120)
+                    
+                    }, completion: { (ok) -> Void in
+                        self.moodView.center.y += 120
+                        self.moodView.transform = CGAffineTransformMakeTranslation(0, 0)
+                        println("after  y:\(self.moodView.center.y)")
+                })
+                
+            }
+
+        }
+        
+    }
     
 }
 
