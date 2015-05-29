@@ -17,9 +17,11 @@ import MediaPlayer
 - happy: 快乐的心情
 - sad:   悲伤的心情
 */
-enum Emotion{
-    case happy
-    case sad
+enum Emotion : String{
+    case happy = "http://douban.fm/j/mine/playlist?channel=7"
+    case sad = "http://douban.fm/j/mine/playlist?channel=16"
+    case calm = "http://douban.fm/j/mine/playlist?channel=8"
+    case angry = "http://douban.fm/j/mine/playlist?channel=14"
 }
 
 class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , CircularProgressViewDelegate{
@@ -29,7 +31,7 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
     
     ///ImageView实例
     @IBOutlet weak var imageView: UIImageView!
-    
+    var originalPoint:CGPoint!
 
     ///第一个Label标签
     @IBOutlet weak var label1: UILabel!
@@ -40,20 +42,37 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
     /// Circular View
     @IBOutlet weak var circularProgressView: CircularProgressView!
     
-    @IBOutlet weak var moodView: MoodUIView!
+    /// mood View
+    @IBOutlet weak var moodView: UIView!
+    
+     /// mood 图标
+    @IBOutlet var moodImages: [UIImageView]!
+    
+    /// mood label
+    @IBOutlet var moodLabels: [UILabel]!
+    
+    /// 拖动的view
+    @IBOutlet weak var controlView: UIView!
+    
+    /// 暂停 label
+    @IBOutlet weak var pauseLabel: UILabel!
+    
+    ///    /// 下一首 label
+    @IBOutlet weak var nextLabel: UILabel!
     
     
-//    /// 音乐播放器
-//    var audioPlayer : MPMoviePlayerController = MPMoviePlayerController()  //音乐播放器
+    /// 扫描后的心情
+    @IBOutlet weak var moodImage: UIImageView!
+    
     
     /// 当前的心情
     var emotion : Emotion = Emotion.happy
     
-    /// 快乐就听摇滚
-    let happySongsURL = "http://douban.fm/j/mine/playlist?channel=7"
-    
-    /// 悲伤就听R&B
-    let sadSongsURL = "http://douban.fm/j/mine/playlist?channel=14"
+//    /// 快乐就听摇滚
+//    let happySongsURL = "http://douban.fm/j/mine/playlist?channel=7"
+//    
+//    /// 悲伤就听R&B
+//    let sadSongsURL = "http://douban.fm/j/mine/playlist?channel=14"
 
     /// 用来获取网络数据
     var http : HttpController = HttpController()
@@ -86,6 +105,9 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
         self.circularProgressView.lineWidth = 5
         self.circularProgressView.delegate = self
         
+        //一开始不要出现
+        self.circularProgressView.hidden = true
+        
         //http的处理交给当前实现HttpProtocol的ViewController来处理
         http.delegate = self
         
@@ -99,8 +121,11 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
         self.view.addGestureRecognizer(up)
         self.view.addGestureRecognizer(down)
         
-        http.onSearch(happySongsURL)
+        //添加pan gesture
+        var pan = UIPanGestureRecognizer(target: self, action: "drag:")
+        self.controlView.addGestureRecognizer(pan)
         
+        self.originalPoint = self.controlView.center
     }
     
 
@@ -152,34 +177,38 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
             println("操作成功!")
             
             println(featureInfo)
-//            var info = featureInfo!
+            var info = featureInfo!
             
             //因为featureInfo和其内部的数据，都是optional类型，需要 unwrap
             if let info = featureInfo {
-                var smileResult = info["smiling"]!
-                var result = smileResult["result"] as! Int
-                var score = smileResult["score"] as! Double
-//                println(score)
-                if result == 1 {
-                    //更新心情为happy
-                    emotion = Emotion.happy
-                    
-                    imageView.image = UIImage(named: "happy")
-                    label1.text = "诶哟！"
-                    label2.text = "今天心情不错哦！"
-                    //获取happy歌曲的数据
-                    http.onSearch(happySongsURL)
-                    
-                }else{
-                    //更新心情为sad
-                    emotion = Emotion.sad
-                    
-                    imageView.image = UIImage(named: "sad")
-                    label1.text = "唉！一言以蔽之"
-                    label2.text = "心好涩"
-                    //获取sad歌曲的数据
-                    http.onSearch(sadSongsURL)
+                var emotions = info["emotions"] as! Dictionary<String,Double>
+                var emoArr = Array<Double>()
+                emoArr.append(emotions["happy"]!)
+                emoArr.append(emotions["sad"]!)
+                emoArr.append(emotions["calm"]!)
+                emoArr.append(emotions["angry"]!)
+                
+                var emoID = 0
+                for var i = 1 ; i < emoArr.count ; i++ {
+                    if emoArr[i] > emoArr[emoID]{
+                        emoID = i
+                    }
                 }
+                
+                switch emoID {
+                case 0:
+                    emotion = Emotion.happy
+                case 1:
+                    emotion = Emotion.sad
+                case 2:
+                    emotion = Emotion.calm
+                default:
+                    emotion = Emotion.angry
+                }
+                
+               
+                self.moodChanged()
+             
             }
             
         }
@@ -189,6 +218,40 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
             println("\(error.code)   \(error.description)")
         }
     }
+    
+    
+    func moodChanged(){
+        
+        switch emotion{
+        case .happy:
+            moodImage.image = UIImage(named: "mood_happy")
+        case .sad:
+            moodImage.image = UIImage(named: "mood_sad")
+        case .calm:
+            moodImage.image = UIImage(named: "mood_calm")
+        case .angry:
+            moodImage.image = UIImage(named: "mood_angry")
+            
+        }
+        
+        self.moodImage.transform = CGAffineTransformConcat(CGAffineTransformMakeScale(1, 1), CGAffineTransformMakeTranslation(0, 0))
+        
+        self.http.onSearch(self.emotion.rawValue)
+        
+        //播放动画
+        UIView.animateWithDuration( 2 , delay: 1 , options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
+            self.moodImage.transform = CGAffineTransformConcat(CGAffineTransformMakeScale(0.2, 0.2), CGAffineTransformMakeTranslation( 0.2 * self.moodImage.frame.width - self.view.center.x , self.view.frame.height - self.view.center.y + 0.2 * self.moodImage.frame.height))
+            
+            }, completion: nil)
+        
+        
+        self.updateMoodView()
+        
+        self.controlView.userInteractionEnabled = true
+        
+    }
+    
     
 // MARK: - Gesture handler Action
     /**
@@ -249,13 +312,7 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
         
         //如果最后一首歌曲播放完毕，需要再次访问网络，获取资源
         if self.id == songs.count {
-            switch emotion{
-            case .happy :
-                http.onSearch(happySongsURL)
-            case .sad :
-                http.onSearch(sadSongsURL)
-            }
-//            println("songs is over")
+            http.onSearch(emotion.rawValue)
             self.id=0
         }
         
@@ -302,9 +359,9 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
     :param: song 需要更新的歌曲信息
     */
     func updateSong(song : NSDictionary){
+        
         //update audio player
         let songURL =  song["url"] as! String
-//        println(songURL)
         
         self.circularProgressView.stop()
         self.circularProgressView.audioURL = NSURL(string: songURL)
@@ -315,13 +372,17 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
         self.onSetImage(imageUrl)
         
         //update song title --> label1
-        label1.text = song["title"] as? String
+        self.label1.text = song["title"] as? String
         
         //update artist  --> label2
-        label2.text = song["artist"] as? String
-        label2.font = label2.font.fontWithSize(13)
+        self.label2.text = song["artist"] as? String
+        self.label2.font = self.label2.font.fontWithSize(13)
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        
+        //歌曲播放时可以出现
+         self.circularProgressView.hidden = false
+        
     }
 
     /**
@@ -339,57 +400,193 @@ class ViewController: UIViewController , SuperIDDelegate , HttpProtocol , Circul
 
   // MARK: - moodView Show
     
+    /**
+        上下滑动处理函数
+    
+    :param: sender 滑动手势
+    */
     func swipeHandler(sender : UISwipeGestureRecognizer){
         
         var frameY = self.view.frame.height
         
         if sender.direction == .Up{
-//            self.moodView.hidden = false
             let h = frameY - self.moodView.center.y
-            println("UP")
-            println(h)
+            
             if h < 0 {
 
-                UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 20, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     
-                    self.moodView.transform = CGAffineTransformMakeTranslation(0, -120)
+                    self.moodView.center.y -= 120
                     
                     }, completion: { (ok) -> Void in
-                    self.moodView.center.y -= 120
-                    self.moodView.transform = CGAffineTransformMakeTranslation(0, 0)
-                    println("after  y:\(self.moodView.center.y)")
                 })
                 
             }
-            
-            
         }
         
         if sender.direction == .Down{
-//            self.moodView.hidden = true
-            println("Down")
-            
             let h = frameY - self.moodView.center.y
-            
-            println(h)
-            
+    
             if h > 0 {
                 
-                UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                UIView.animateWithDuration( 0.3 , delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     
-                    self.moodView.transform = CGAffineTransformMakeTranslation(0, 120)
+                    self.moodView.center.y += 120
                     
                     }, completion: { (ok) -> Void in
-                        self.moodView.center.y += 120
-                        self.moodView.transform = CGAffineTransformMakeTranslation(0, 0)
-                        println("after  y:\(self.moodView.center.y)")
                 })
-                
+
             }
 
         }
+    }
+    
+    /**
+        更新 mood view 显示
+    */
+    func updateMoodView(){
+        
+        for moodImg in moodImages{
+            moodImg.highlighted = false
+        }
+        
+        for label in moodLabels {
+            label.textColor = UIColor.grayColor()
+        }
+        
+        switch self.emotion{
+        case .happy:
+            moodImages[0].highlighted = true
+            moodLabels[0].textColor = UIColor.blackColor()
+        case .sad :
+            moodImages[1].highlighted = true
+            moodLabels[1].textColor = UIColor.blackColor()
+        case .calm :
+            moodImages[2].highlighted = true
+            moodLabels[2].textColor = UIColor.blackColor()
+        case .angry:
+            moodImages[3].highlighted = true
+            moodLabels[3].textColor = UIColor.blackColor()
+        }
+    }
+    
+    
+    /**
+        用户主动点击表情，切换频道的处理函数
+    
+    :param: sender 标识点击的表情
+    */
+    @IBAction func moodViewTapped(sender : UIButton){
+        
+        //通过UIImageView的tag进行标示，可以在storyboard对应的utility的attribute inspector中设置
+        switch sender.tag{
+        case 0:
+            emotion = Emotion.happy
+        case 1:
+            emotion = Emotion.sad
+        case 2:
+            emotion = Emotion.calm
+        default:
+            emotion = Emotion.angry
+        }
+        
+        
+        
+        UIView.animateWithDuration( 0.3 , delay: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
+            self.moodView.center.y += 120
+            
+            }, completion: { (ok) -> Void in
+        })
+
+        
+        moodChanged()
         
     }
+    
+ // MARK: - Pan gesture
+    
+     /**
+        control view 拖动手势处理函数
+    
+    :param: sender
+    */
+    func drag(sender : UIPanGestureRecognizer){
+        
+        let xDistance:CGFloat = sender.translationInView(self.view).x
+        let yDistance:CGFloat = sender.translationInView(self.view).y
+        
+        switch sender.state{
+        case UIGestureRecognizerState.Began:
+            println("begin")
+        case UIGestureRecognizerState.Changed:
+
+            self.controlView.center.x = originalPoint.x + xDistance
+            var nowX = self.controlView.center.x
+            
+            //展示下一首 label
+            if nowX <= originalPoint.x - 120 {
+                self.nextLabel.hidden = false
+            }else{
+                self.nextLabel.hidden = true
+            }
+            
+            //展示暂停  label
+            if nowX >= originalPoint.x + 120{
+                self.pauseLabel.hidden = false
+            }else{
+                self.pauseLabel.hidden = true
+            }
+            
+        case UIGestureRecognizerState.Ended:
+            
+            var nowX = self.controlView.center.x
+            
+            self.nextLabel.hidden = true
+            
+            //需要切换歌曲
+            if nowX <= originalPoint.x - 120{
+                self.nextLabel.hidden = true
+                self.playerDidFinishPlaying()
+                UIView.animateWithDuration( 0.3 , delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                    
+                    self.controlView.center.x = self.originalPoint.x
+                    
+                    }, completion: nil)
+                
+            }
+            //需要暂停
+            else if nowX >= originalPoint.x + 120{
+                
+                self.circularProgressView.pause()
+                
+                UIView.animateWithDuration( 0.3 , delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                    
+                    self.controlView.center.x = self.view.frame.width
+                    
+                    }, completion: nil)
+                
+                
+            }else{
+                
+                self.circularProgressView.play()
+                
+                UIView.animateWithDuration( 0.3 , delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                    
+                    self.controlView.center.x = self.originalPoint.x
+                    
+                    }, completion: nil)
+
+            }
+            
+            
+            
+        default:
+            println("default")
+        }
+        
+    }
+    
     
 }
 

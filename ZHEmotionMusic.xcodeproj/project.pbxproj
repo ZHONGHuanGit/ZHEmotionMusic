@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		211C93011B16F94000CDB040 /* MoodUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C93001B16F94000CDB040 /* MoodUIView.swift */; };
 		211C930C1B16FB6F00CDB040 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C930B1B16FB6F00CDB040 /* CircularProgressView.m */; };
 		211C930F1B16FB9E00CDB040 /*  HttpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C930D1B16FB9E00CDB040 /*  HttpController.swift */; };
 		211C93101B16FB9E00CDB040 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C930E1B16FB9E00CDB040 /* ImageLoader.swift */; };
@@ -38,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		211C93001B16F94000CDB040 /* MoodUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodUIView.swift; sourceTree = "<group>"; };
 		211C930A1B16FB6F00CDB040 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularProgressView.h; path = ZHEmotionMusic/CircularProgressView/CircularProgressView.h; sourceTree = "<group>"; };
 		211C930B1B16FB6F00CDB040 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircularProgressView.m; path = ZHEmotionMusic/CircularProgressView/CircularProgressView.m; sourceTree = "<group>"; };
 		211C930D1B16FB9E00CDB040 /*  HttpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = " HttpController.swift"; path = "ZHEmotionMusic/HttpController/ HttpController.swift"; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 		219BBC9C1B102E7500753280 /* ZHEmotionMusic */ = {
 			isa = PBXGroup;
 			children = (
-				211C93001B16F94000CDB040 /* MoodUIView.swift */,
 				219BBC9F1B102E7600753280 /* AppDelegate.swift */,
 				219BBCA11B102E7600753280 /* ViewController.swift */,
 				219BBCA31B102E7600753280 /* Main.storyboard */,
@@ -312,7 +309,6 @@
 				219BBCA21B102E7600753280 /* ViewController.swift in Sources */,
 				219BBCA01B102E7600753280 /* AppDelegate.swift in Sources */,
 				211C930C1B16FB6F00CDB040 /* CircularProgressView.m in Sources */,
-				211C93011B16F94000CDB040 /* MoodUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
